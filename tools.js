@@ -69,12 +69,12 @@ sticky.addEventListener('click', () => {
       
         // move it out of any current parents directly into body
         // to make it positioned relative to the body
-        document.body.append(stickyCont);
+        // document.body.append(stickyCont);
       
         // centers the ball at (pageX, pageY) coordinates
         function moveAt(pageX, pageY) {
-            stickyCont.style.left = pageX - shiftX + 'px';
-            stickyCont.style.top = pageY - shiftY  + 'px';
+            stickyCont.style.left = pageX -shiftX + 'px';
+            stickyCont.style.top = pageY - shiftY + 'px';
         }
       
         // move our absolutely positioned ball under the pointer
