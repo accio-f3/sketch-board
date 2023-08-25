@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="tools-cont">
+        <div class="pencil-cont">
+            <img class="pencil" src="icons/Pencil.svg" />
+            <div class="pencil-tools-cont">
+                <input type="range" min="2" max="10" value="3" class="pencil-width"/>
+                <div class="pencil-color-cont">
+                    <div class="black"></div>
+                    <div class="red"></div>
+                    <div class="blue"></div>
+                </div>
+            </div>
+        </div>
+        <div class="eraser-cont">
+            <img class="eraser" src="icons/Eraser.svg" />
+            <div class="eraser-tools-cont">
+                <input type="range" min="2" max="10" value="3" class="eraser-width"/>
+            </div>
+        </div>
+        <img class="download" src="icons/Download.svg" />
+        <img class="upload" src="icons/Upload.svg" />
+        <img class="sticky" src="icons/StickyNote.svg" />
+        <img class="redo" src="icons/Redo.svg" />
+        <img class="undo" src="icons/Undo.svg" />
+    </div>
+    <canvas></canvas>
+    <!-- <div class="sticky-cont">
+        <div class="header-cont">
+            <div class="minimize"></div>
+            <div class="remove"></div>
+        </div>
+        <div class="notes-cont">
+            <textarea></textarea>
+        </div>
+    </div> -->
+</body>
+<script src="./tools.js"></script>
+<script src="./canvas.js"></script>
+</html>
