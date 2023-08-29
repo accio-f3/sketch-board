@@ -105,10 +105,11 @@ redo.addEventListener('click', () => {
 function renderURLonCanvas(index){
     let url = undoRedoCache[index];
     let img = new Image;
-    img.onload = (e) => {
-        penTools.drawImage(img, 0, 0);
-    }
     img.src = url;
+    img.onload = (e) => {
+        penTools.clearRect(0, 0, canvas.width, canvas.height);
+        penTools.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
 }
 
 // [1,2,3]
