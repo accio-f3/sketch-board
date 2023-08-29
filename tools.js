@@ -35,6 +35,7 @@ eraser.addEventListener('click', () => {
 
 sticky.addEventListener('click', () => {
     const stickyElement = `<div class="header-cont">
+
             <div class="minimize"></div>
             <div class="remove"></div>
         </div>
@@ -48,7 +49,6 @@ sticky.addEventListener('click', () => {
     let minimize=stickyCont.querySelector('.minimize');
     let remove=stickyCont.querySelector('.remove');
     remove.addEventListener('click',()=>{
-        console.log('testing');
         stickyCont.remove();
     })
     minimize.addEventListener('click',()=>{
@@ -69,7 +69,6 @@ sticky.addEventListener('click', () => {
       
         // move it out of any current parents directly into body
         // to make it positioned relative to the body
-        // document.body.append(stickyCont);
       
         // centers the ball at (pageX, pageY) coordinates
         function moveAt(pageX, pageY) {
