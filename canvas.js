@@ -1,6 +1,8 @@
 let canvas= document.querySelector('canvas');
 let pencilWidth=document.querySelector('.pencil-width');
 let eraserWidth=document.querySelector('.eraser-width');
+let download=document.querySelector('.download');
+let upload=document.querySelector('.upload');
 let black=document.querySelector('.black');
 let red=document.querySelector('.red');
 let blue=document.querySelector('.blue');
@@ -92,25 +94,46 @@ undo.addEventListener('click', () => {
     if (currentUrlIndex > 0) {
         currentUrlIndex--;
     }
-    renderURLonCanvas(currentUrlIndex);
+    renderURLonCanvas(undoRedoCache[currentUrlIndex]);
 })
 
 redo.addEventListener('click', () => {
     if (currentUrlIndex < undoRedoCache.length - 1) {
         currentUrlIndex++;
     }
-    renderURLonCanvas(currentUrlIndex);
+    renderURLonCanvas(undoRedoCache[currentUrlIndex]);
 })
 
-function renderURLonCanvas(index){
-    let url = undoRedoCache[index];
+function renderURLonCanvas(url){
     let img = new Image;
+    console.log(url);
     img.src = url;
-    img.onload = (e) => {
+    img.onload = () => {
         penTools.clearRect(0, 0, canvas.width, canvas.height);
         penTools.drawImage(img, 0, 0, canvas.width, canvas.height);
     }
 }
+
+download.addEventListener('click',()=>{
+    const url = canvas.toDataURL();
+    let a = document.createElement('a');
+    a.href=url;
+    a.download="canvas.jpg";
+    a.click();
+});
+
+upload.addEventListener('click',()=>{
+    let inputFile=document.createElement('input');
+    inputFile.setAttribute('type','file');
+    // it acts as clicked
+    inputFile.click();
+
+    inputFile.addEventListener('change',(event)=>{
+        let file = inputFile.files[0];
+        let url = URL.createObjectURL(file);
+        renderURLonCanvas(url);
+    })
+})
 
 // [1,2,3]
 // arr[arr.length]
